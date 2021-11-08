@@ -137,7 +137,12 @@ sub save_page ( $pdf, $title_text ) {
  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 sub get_next_sunday ( $dt = DateTime->now, $weeks = 1 ) {
-	my $days_until_sunday = ($weeks * 7 - $dt->day_of_week) || $weeks * 7;
+	my $days_until_sunday = do {
+		if( $dt->day_of_week == 7 ) { 0 }
+		else {
+			($weeks * 7 - $dt->day_of_week ) || $weeks * 7;
+			}
+		};
 
 	$dt->clone->add( days => $days_until_sunday );
 	}

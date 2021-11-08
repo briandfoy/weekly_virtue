@@ -9,6 +9,16 @@ no warnings qw(experimental::signatures);
 
 use DateTime;
 
+=head1 NAME
+
+weekly.pl - make the weekly virtue sheets
+
+=head1 SYNOPSIS
+
+	% weekly.pl N_WEEKS
+
+=cut
+
 my $weeks = $ARGV[0] // 1;
 my $font_name = 'Helvetica-Bold';
 my $font;

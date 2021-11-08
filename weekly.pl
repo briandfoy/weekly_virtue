@@ -30,7 +30,7 @@ my $separation = int( $width / 2 );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Setup the page
-foreach my $weeks_in_future ( 1 .. $weeks ) {
+foreach my $weeks_in_future ( -1 .. $weeks ) {
 	state $start_date = DateTime->now;
 	my $next_date = get_next_sunday( $start_date, $weeks_in_future );
 	my $title_text = get_week_string( $next_date );
